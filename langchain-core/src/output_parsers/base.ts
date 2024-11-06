@@ -52,7 +52,7 @@ export abstract class BaseLLMOutputParser<T = unknown> extends Runnable<
   protected _baseMessageToString(message: BaseMessage): string {
     return typeof message.content === "string"
       ? message.content
-      : this._baseMessageContentToString(message.content);
+      : JSON.stringify(message);
   }
 
   protected _baseMessageContentToString(
